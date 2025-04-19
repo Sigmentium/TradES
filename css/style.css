@@ -1,0 +1,29 @@
+body {
+    background-color:white;
+    font-family:Verdana;
+    margin:0;
+}
+input, button {
+    width:200px;
+    font-size:20px;
+    text-align:center;
+    border:2px solid black;
+    border-radius:10px;
+}
+input { height:30px; }
+button { height:40px; }
+
+.center {
+    text-align:center;
+}
+.Des {
+    margin-left:20px;
+}
+
+#New {
+    width:90%;
+    height:auto;
+    border:2px solid lightgrey;
+    border-radius:10px;
+    display:inline-block;
+}
