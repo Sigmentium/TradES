@@ -40,7 +40,7 @@ button { height:40px; }
     background:rgba(0, 0, 0, 0.5);
     position:fixed;
 }
-#New {
+#New, #Device {
     display:none;
     background-color:white;
     width:90%;
