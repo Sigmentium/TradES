@@ -41,7 +41,7 @@ document.getElementById('Create').addEventListener('click', function() {
     document.getElementById('Overlay').style.display = 'block';
     document.getElementById('Device').style.display = 'block';
 
-    bluetoothSerial.list(function(devices) {
+    bluetoothSerial.scan(function(devices) {
         devices.forEach(function(device) {
             // let Option = document.createElement('option');
             // Option.value = device.id;
@@ -85,5 +85,6 @@ document.getElementById('NewChat').addEventListener('click', function() {
 
 document.getElementById('Overlay').addEventListener('click', function() {
     document.getElementById('Overlay').style.display = 'none';
+    document.getElementById('Device').style.display = 'none';
     document.getElementById('New').style.display = 'none';
 });

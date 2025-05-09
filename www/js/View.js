@@ -3,10 +3,7 @@ let Check = true;
 let Data = JSON.parse(localStorage.getItem('TimeData'));
 let ChatData = JSON.parse(localStorage.getItem('Chats'));
 
-console.log(localStorage);
-
 const Name = localStorage.getItem('TimeName');
-const LocalName = localStorage.getItem('LocalName');
 const Device = localStorage.getItem('TimeDevice');
 
 bluetoothSerial.connet(Device);
@@ -48,6 +45,7 @@ for (let A of Object.keys(Data)) {
 document.getElementById('Back').addEventListener('click', function() {
     localStorage.removeItem('TimeData');
     localStorage.removeItem('TimeName');
+    localStorage.removeItem('TimeDevice');
 
     location.href = './index.html';
 });
@@ -59,6 +57,9 @@ document.getElementById('Send').addEventListener('click', function() {
 
     Data[Sender] = Message;
     ChatData[Name][Sender] = Message;
+
+    document.getElementById('Messages').innerHTML += `<H3>${Data}</H3>`;
+    document.getElementById('Messages').innerHTML += `<H3>${ChatData}</H3>`;
 
     localStorage.setItem('Chats', JSON.stringify(ChatData));
     localStorage.setItem('TimeData', JSON.stringify(Data));
