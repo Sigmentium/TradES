@@ -3,21 +3,22 @@ let Check = true;
 let Data = JSON.parse(localStorage.getItem('TimeData'));
 let ChatData = JSON.parse(localStorage.getItem('Chats'));
 
-console.log(localStorage);
-
 const Name = localStorage.getItem('TimeName');
-const LocalName = localStorage.getItem('LocalName'); // localStorage.getItem('LocalName')
+const Device = localStorage.getItem('TimeDevice');
 
+bluetoothSerial.connet(Device);
 bluetoothSerial.subscribe("\n", function(data) {
-    const text = JSON.parse(data);
-    const keys = Object.keys(text);
-    const SenderKey = keys[0];
-    const Message = text[SenderKey];
+    // const text = JSON.parse(data);
+    // const keys = Object.keys(text);
+    // const SenderKey = keys[0];
+    // const Message = text[SenderKey];
 
-    ChatData[Name][SenderKey] = Message;
+    // ChatData[Name][SenderKey] = Message;
 
-    localStorage.setItem('Chats', JSON.stringify(ChatData));
+    // localStorage.setItem('Chats', JSON.stringify(ChatData));
 
+    alert(data);
+    alert(JSON.parse(data));
     document.getElementById('Messages').innerHTML += `<div><H3>${Message}</H3></div>`;
 });
 
@@ -44,6 +45,7 @@ for (let A of Object.keys(Data)) {
 document.getElementById('Back').addEventListener('click', function() {
     localStorage.removeItem('TimeData');
     localStorage.removeItem('TimeName');
+    localStorage.removeItem('TimeDevice');
 
     location.href = './index.html';
 });
@@ -56,8 +58,13 @@ document.getElementById('Send').addEventListener('click', function() {
     Data[Sender] = Message;
     ChatData[Name][Sender] = Message;
 
+    document.getElementById('Messages').innerHTML += `<H3>${Data}</H3>`;
+    document.getElementById('Messages').innerHTML += `<H3>${ChatData}</H3>`;
+
     localStorage.setItem('Chats', JSON.stringify(ChatData));
     localStorage.setItem('TimeData', JSON.stringify(Data));
+
+    bluetoothSerial.write(Message + '\n');
 
     document.getElementById('Messages').innerHTML += `<div><H3 id="MessageR">${Message}</H3></div>`;
     document.getElementById('Input').value = '';
