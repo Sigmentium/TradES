@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "outDir": "./js"
+    },
+    "files": [
+        "ts/Main.ts",
+        "ts/View.ts"
+    ]
+}
