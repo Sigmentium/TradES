@@ -42,8 +42,9 @@ body {
 #MessageL, #MessageR {
     min-width:10px;
     max-width:90%;
-    min-height:40px;
+    min-height:30px;
     padding:5px;
+    font-size:25px;
     border:2px solid black;
     border-radius:10px;
     display:flex;

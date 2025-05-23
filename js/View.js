@@ -15,13 +15,14 @@ for (let A in Chat) {
     const CheckerMe = `${Me}-${Count}`;
     const Checker = `${Name}-${Count}`;
     if (Count === 0) {
+        Count++;
         continue;
     }
     else if (A === CheckerMe) {
-        MessagesPath.innerHTML += `<div id="MessageR"><H3>${Chat[A]}</H3></div>`;
+        MessagesPath.innerHTML += `<div id="MessageR">${Chat[A]}</div>`;
     }
     else if (A === Checker) {
-        MessagesPath.innerHTML += `<div id="MessageL"><H3>${Chat[A]}</H3></div>`;
+        MessagesPath.innerHTML += `<div id="MessageL">${Chat[A]}</div>`;
     }
     Count++;
 }
